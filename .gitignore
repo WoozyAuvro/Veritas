@@ -1,0 +1,6 @@
+check_BS.py
+check_emails.py
+check_receipt.py
+.env
+__pycache__
+fraud.sqlite3

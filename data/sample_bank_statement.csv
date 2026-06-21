@@ -1,0 +1,111 @@
+date,description,amount,balance,vendor_name,invoice_number,reference_number
+03/06/2023,Marketing Services - Horizon Marketing,-38110.39,461889.61,Horizon Marketing Agency,INV1428,UTR20230603949
+05/06/2023,Payment to Acme Suppliers Ltd,-49150.28,412739.33,Acme Suppliers Ltd,INV1111,UTR20230605820
+05/06/2023,Utility Bill,-4841.03,407898.3,DESCO,INV1038,UTR20230605742
+08/06/2023,Payment to Zenith Traders,-9997.65,397900.65,Zenith Traders,INV1189,UTR20230608586
+11/06/2023,Client Payment Received - Nexus Corp,42090.43,439991.08,,,
+13/06/2023,Freight Delivery - Skyline Freight Services,-22859.7,417131.38,Skyline Freight Services,INV1376,UTR20230613973
+15/06/2023,Monthly Retainer - BrightPath Consulting,-82320.35,334811.03,BrightPath Consulting,INV1339,UTR20230615665
+21/06/2023,Office Rent Payment,-61888.05,272922.98,Greenview Properties,INV1001,UTR20230621350
+22/06/2023,Internet and Phone Bill,-2914.19,270008.79,Trinity Telecom,INV1075,UTR20230622578
+30/07/2023,Payroll Tax Remittance,-33092.34,236916.45,,,
+28/08/2023,Payroll Tax Remittance,-31627.3,205289.15,,,
+01/09/2023,Marketing Services - Horizon Marketing,-36942.16,168346.99,Horizon Marketing Agency,INV1431,UTR20230901383
+05/09/2023,Utility Bill,-5536.16,162810.83,DESCO,INV1041,UTR20230905666
+06/09/2023,Client Payment Received - Orion Ltd,86180.81,248991.64,,,
+11/09/2023,Payment to Acme Suppliers Ltd,-47696.53,201295.11,Acme Suppliers Ltd,INV1118,UTR20230911803
+14/09/2023,Internet and Phone Bill,-3379.99,197915.12,Trinity Telecom,INV1078,UTR20230914354
+15/09/2023,Monthly Retainer - BrightPath Consulting,-82520.3,115394.82,BrightPath Consulting,INV1342,UTR20230915685
+18/09/2023,Office Rent Payment,-57163.99,58230.83,Greenview Properties,INV1004,UTR20230918532
+29/09/2023,Payment to Zenith Traders,-9805.17,48425.66,Zenith Traders,INV1204,UTR20230929973
+01/10/2023,Freight Delivery - Skyline Freight Services,-33742.25,14683.41,Skyline Freight Services,INV1381,UTR20231001150
+08/10/2023,ATM Withdrawal,-11983.89,2699.52,,,
+20/10/2023,ATM Withdrawal,-9220.32,-6520.8,,,
+29/11/2023,Marketing Services - Horizon Marketing,-38715.73,-45236.53,Horizon Marketing Agency,INV1434,UTR20231129234
+30/11/2023,Utility Bill,-4122.93,-49359.46,DESCO,INV1044,UTR20231130214
+12/12/2023,Internet and Phone Bill,-3200.83,-52560.29,Trinity Telecom,INV1081,UTR20231212553
+15/12/2023,Payment to Acme Suppliers Ltd,-52351.46,-104911.75,Acme Suppliers Ltd,INV1125,UTR20231215807
+16/12/2023,Monthly Retainer - BrightPath Consulting,-83478.75,-188390.5,BrightPath Consulting,INV1345,UTR20231216495
+19/12/2023,Office Rent Payment,-60686.63,-249077.13,Greenview Properties,INV1007,UTR20231219658
+14/01/2024,ATM Withdrawal,-10879.46,-259956.59,,,
+15/01/2024,Freight Delivery - Skyline Freight Services,-31185.8,-291142.39,Skyline Freight Services,INV1386,UTR20240115743
+21/01/2024,Payment to Zenith Traders,-9809.12,-300951.51,Zenith Traders,INV1219,UTR20240121767
+24/02/2024,Marketing Services - Horizon Marketing,-34698.83,-335650.34,Horizon Marketing Agency,INV1437,UTR20240224531
+24/02/2024,ATM Withdrawal,-10366.39,-346016.73,,,
+27/02/2024,Utility Bill,-4515.71,-350532.44,DESCO,INV1047,UTR20240227740
+03/03/2024,Client Payment Received - Nexus Corp,118764.96,-231767.48,,,
+04/03/2024,Client Payment Received - Nexus Corp,89724.7,-142042.78,,,
+09/03/2024,Internet and Phone Bill,-2894.35,-144937.13,Trinity Telecom,INV1084,UTR20240309871
+10/03/2024,Monthly Retainer - BrightPath Consulting,-90544.09,-235481.22,BrightPath Consulting,INV1348,UTR20240310995
+17/03/2024,Payment to Acme Suppliers Ltd,-39600.79,-275082.01,Acme Suppliers Ltd,INV1132,UTR20240317995
+19/03/2024,Office Rent Payment,-58547.17,-333629.18,Greenview Properties,INV1010,UTR20240319814
+23/04/2024,Payroll Tax Remittance,-31667.91,-365297.09,,,
+30/04/2024,Payment to Zenith Traders,-9614.33,-374911.42,Zenith Traders,INV1234,UTR20240430645
+01/05/2024,Freight Delivery - Skyline Freight Services,-29199.07,-404110.49,Skyline Freight Services,INV1391,UTR20240501652
+26/05/2024,Marketing Services - Horizon Marketing,-36547.96,-440658.45,Horizon Marketing Agency,INV1440,UTR20240526211
+28/05/2024,Utility Bill,-4581.45,-445239.9,DESCO,INV1050,UTR20240528652
+06/06/2024,Internet and Phone Bill,-2568.49,-447808.39,Trinity Telecom,INV1087,UTR20240606371
+07/06/2024,Monthly Retainer - BrightPath Consulting,-89664.79,-537473.18,BrightPath Consulting,INV1351,UTR20240607371
+16/06/2024,Office Rent Payment,-58969.24,-596442.42,Greenview Properties,INV1013,UTR20240616452
+21/06/2024,Payment to Acme Suppliers Ltd,-45445.18,-641887.6,Acme Suppliers Ltd,INV1139,UTR20240621993
+03/07/2024,Salary Disbursement,-186286.53,-828174.13,,,
+16/08/2024,Payment to Zenith Traders,-9633.83,-837807.96,Zenith Traders,INV1249,UTR20240816818
+18/08/2024,Freight Delivery - Skyline Freight Services,-23453.7,-861261.66,Skyline Freight Services,INV1396,UTR20240818177
+26/08/2024,Utility Bill,-5619.41,-866881.07,DESCO,INV1053,UTR20240826414
+28/08/2024,Marketing Services - Horizon Marketing,-34062.45,-900943.52,Horizon Marketing Agency,INV1443,UTR20240828590
+05/09/2024,ATM Withdrawal,-9152.65,-910096.17,,,
+08/09/2024,Monthly Retainer - BrightPath Consulting,-80261.2,-990357.37,BrightPath Consulting,INV1354,UTR20240908489
+08/09/2024,Internet and Phone Bill,-2741.28,-993098.65,Trinity Telecom,INV1090,UTR20240908777
+12/09/2024,Office Rent Payment,-58155.59,-1051254.24,Greenview Properties,INV1016,UTR20240912665
+25/09/2024,Payment to Acme Suppliers Ltd,-44331.57,-1095585.81,Acme Suppliers Ltd,INV1146,UTR20240925509
+02/11/2024,Payment to Acme Suppliers Ltd,-210000,-1305585.81,Acme Suppliers Ltd,INV1466,UTR2024110201X
+23/11/2024,Marketing Services - Horizon Marketing,-35804.01,-1341389.82,Horizon Marketing Agency,INV1446,UTR20241123429
+23/11/2024,Utility Bill,-3791.45,-1345181.27,DESCO,INV1056,UTR20241123935
+01/12/2024,Freight Delivery - Skyline Freight Services,-20825.39,-1366006.66,Skyline Freight Services,INV1401,UTR20241201788
+03/12/2024,ATM Withdrawal,-10831.42,-1376838.08,,,
+05/12/2024,Payment to Zenith Traders,-10029.33,-1386867.41,Zenith Traders,INV1264,UTR20241205878
+10/12/2024,Office Rent Payment,-59870.63,-1446738.04,Greenview Properties,INV1019,UTR20241210333
+11/12/2024,Monthly Retainer - BrightPath Consulting,-88851.57,-1535589.61,BrightPath Consulting,INV1357,UTR20241211394
+12/12/2024,Internet and Phone Bill,-3441.4,-1539031.01,Trinity Telecom,INV1093,UTR20241212151
+21/12/2024,Payroll Tax Remittance,-31817.49,-1570848.5,,,
+10/01/2025,Payment to Acme Suppliers Ltd,-47096.53,-1617945.03,Acme Suppliers Ltd,INV1153,UTR20250110145
+12/01/2025,ATM Withdrawal,-9462.15,-1627407.18,,,
+19/01/2025,Payroll Tax Remittance,-30364.21,-1657771.39,,,
+09/02/2025,ATM Withdrawal,-13541.35,-1671312.74,,,
+19/02/2025,Utility Bill,-5140.56,-1676453.3,DESCO,INV1059,UTR20250219640
+25/02/2025,Marketing Services - Horizon Marketing,-29068.69,-1705521.99,Horizon Marketing Agency,INV1449,UTR20250225401
+06/03/2025,Monthly Retainer - BrightPath Consulting,-85550.51,-1791072.5,BrightPath Consulting,INV1360,UTR20250306554
+09/03/2025,Office Rent Payment,-58908.68,-1849981.18,Greenview Properties,INV1022,UTR20250309266
+14/03/2025,Payment to Zenith Traders,-68000,-1917981.18,Zenith Traders,INV1465,UTR2025031499X
+16/03/2025,Freight Delivery - Skyline Freight Services,-19827.92,-1937809.1,Skyline Freight Services,INV1406,UTR20250316326
+18/03/2025,Internet and Phone Bill,-3020.87,-1940829.97,Trinity Telecom,INV1096,UTR20250318182
+21/03/2025,Payment to Zenith Traders,-9818.56,-1950648.53,Zenith Traders,INV1279,UTR20250321909
+17/04/2025,Client Payment Received - Orion Ltd,55135.95,-1895512.58,,,
+22/04/2025,Payment to Acme Suppliers Ltd,-41680.28,-1937192.86,Acme Suppliers Ltd,INV1160,UTR20250422434
+20/05/2025,Client Payment Received - Meridian Holdings,44659.07,-1892533.79,,,
+20/05/2025,Utility Bill,-4365.16,-1896898.95,DESCO,INV1062,UTR20250520830
+31/05/2025,Marketing Services - Horizon Marketing,-39522.75,-1936421.7,Horizon Marketing Agency,INV1452,UTR20250531838
+01/06/2025,Monthly Retainer - BrightPath Consulting,-84217.42,-2020639.12,BrightPath Consulting,INV1363,UTR20250601249
+04/06/2025,Office Rent Payment,-58901.69,-2079540.81,Greenview Properties,INV1025,UTR20250604573
+12/06/2025,Internet and Phone Bill,-3563.65,-2083104.46,Trinity Telecom,INV1099,UTR20250612692
+26/06/2025,Freight Delivery - Skyline Freight Services,-36558.56,-2119663.02,Skyline Freight Services,INV1411,UTR20250626238
+09/07/2025,Payment to Zenith Traders,-9885.26,-2129548.28,Zenith Traders,INV1294,UTR20250709372
+20/07/2025,Office Rent Payment,-1200,-2130748.28,Greenview Properties,INV1467,UTR2025072011X
+08/08/2025,Client Payment Received - Meridian Holdings,44788.79,-2085959.49,,,
+20/08/2025,Payment to Acme Suppliers Ltd,-42808.64,-2128768.13,Acme Suppliers Ltd,INV1168,UTR20250820791
+29/08/2025,Marketing Services - Horizon Marketing,-27195.01,-2155963.14,Horizon Marketing Agency,INV1455,UTR20250829420
+29/08/2025,Monthly Retainer - BrightPath Consulting,-82858.49,-2238821.63,BrightPath Consulting,INV1366,UTR20250829180
+03/09/2025,Office Rent Payment,-61303.99,-2300125.62,Greenview Properties,INV1028,UTR20250903334
+05/09/2025,Monthly Retainer - BrightPath Consulting,-85000,-2385125.62,BrightPath Consulting,INV9001,UTR2025090501X
+09/09/2025,Monthly Retainer - BrightPath Consulting,-85000,-2470125.62,BrightPath Consulting,INV9001,UTR2025090902X
+16/09/2025,Internet and Phone Bill,-3416.31,-2473541.93,Trinity Telecom,INV1102,UTR20250916423
+17/09/2025,Utility Bill,-5095.0,-2478636.93,DESCO,INV1066,UTR20250917702
+11/10/2025,Freight Delivery - Skyline Freight Services,-23190.78,-2501827.71,Skyline Freight Services,INV1416,UTR20251011730
+30/10/2025,Payment to Zenith Traders,-9684.42,-2511512.13,Zenith Traders,INV1309,UTR20251030193
+14/11/2025,Client Payment Received - Nexus Corp,53885.3,-2457626.83,,,
+18/11/2025,Payment to Acme Suppliers Ltd,-45147.15,-2502773.98,Acme Suppliers Ltd,INV1175,UTR20251118970
+24/01/2026,Freight Delivery - Skyline Freight Services,-14733.74,-2517507.72,Skyline Freight Services,INV1421,UTR20260124467
+25/01/2026,Client Payment Received - Vertex Industries,44028.28,-2473479.44,,,
+27/02/2026,Payment to Zenith Traders,-9682.43,-2483161.87,Zenith Traders,INV1324,UTR20260227918
+05/04/2026,Client Payment Received - Apex Solutions,100956.71,-2382205.16,,,
+08/04/2026,ATM Withdrawal,-7468.84,-2389674.0,,,
