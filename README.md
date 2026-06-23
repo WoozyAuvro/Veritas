@@ -247,52 +247,7 @@ rows = conn.execute(
 ).fetchall()
 for row in rows:
     print(dict(row))
-```
 
----
-
-## Statistical Detection
-
-Two independent anomaly detectors that read from the `transactions` table and
-return results as plain Python data — no database writes, no side effects.
-
-```powershell
-python -m detection.z_score
-python -m detection.isolation_forest
-```
-
-**`z_score.py`** — for each vendor with at least 3 transactions, flags any
-transaction whose amount is more than 3 standard deviations from that vendor's
-typical amount. Vendors with too little history, or whose every transaction is
-identical, are skipped (not enough variation to measure against).
-
-**`isolation_forest.py`** — runs scikit-learn's Isolation Forest across all
-transactions using amount, day-of-week, and days-since-last-transaction-with-vendor
-as features. Catches multi-dimensional anomalies (unusual combinations of amount +
-timing) that a single z-score on amount alone would miss.
-
-Both can be imported and called directly instead of run from the command line:
-
-```python
-from detection.z_score import detect_zscore_outliers
-from detection.isolation_forest import detect_isolation_forest_outliers
-
-zscore_flags = detect_zscore_outliers()
-forest_flags = detect_isolation_forest_outliers()
-```
-
-Each flag is a dict with `txn_id`, `method`, `vendor_name`, `date`, `amount`, and
-a `reason` string. Neither detector writes anywhere — what happens with the
-results (storing them, displaying them, etc.) is up to whatever calls them.
-
-**Note on data volume:** both detectors need real per-vendor transaction history
-to produce meaningful results. A handful of transactions per vendor isn't enough
-for a statistically reliable z-score — `data/sample_bank_statement_curated.csv`
-and `data/sample_bank_statement_large.csv` (110 and 680 rows respectively, spanning
-3 years) are built with enough volume per vendor for both detectors to work properly,
-including several deliberately planted anomalies for testing.
-
----
 
 ## Quick Reference
 
