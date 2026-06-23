@@ -8,14 +8,25 @@ from storage.vector_store import ask_llm_for_json, save_document
  
  
 def ingest_email(file_path):
+    from dateutil import parser as dateparser
+
     file_path = Path(file_path)
     text, headers = read_email_text(file_path)
     metadata = extract_email_info(text, file_path, headers)
- 
+
+    # date saves the date properly into smth we can read
+    # date_unix is what we need invoice_matching.py because chroma cant compute dates otherwise
+
+    if metadata.get("date"):
+        try:
+            metadata["date_unix"] = int(dateparser.parse(str(metadata["date"])).timestamp())
+        except: # this exists if date somehow cant be parsed the entire thing wont crash
+            metadata["date_unix"] = 0
+
     doc_id = make_id("email", file_path, text)
     metadata["id"] = doc_id
     metadata["doc_type"] = "email"
- 
+
     save_document(doc_id, text, metadata)
     return metadata
  
