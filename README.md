@@ -51,7 +51,8 @@ Each receipt is stored in ChromaDB with this metadata:
 | Field | Type | Notes |
 |---|---|---|
 | `id` | string | Content-based hash, e.g. `receipt_f6e8058f...` — same file content always produces the same id, so re-ingesting doesn't duplicate |
-| `date` | string | Whatever format the LLM extracted (not guaranteed to be normalized) |
+| `date` | string | YYYY-MM-DD format |
+| `date_utix`| int | this is what chromadb uses to measure dates |
 | `amount_bdt` | number | Numeric amount in BDT |
 | `vendor_name` | string | |
 | `content` | string | Short description of what the expenditure was for |
@@ -94,7 +95,8 @@ Each email is stored in ChromaDB with this metadata:
 | Field | Type | Notes |
 |---|---|---|
 | `id` | string | Content-based hash, e.g. `email_1076235d...` |
-| `date` | string | From the `.eml` header if present, otherwise inferred by the LLM — can be empty if no date appears anywhere |
+| `date` | string | From the `.eml` header if present, otherwise inferred by the LLM (YYYY-MM-DD) — can be empty if no date appears anywhere |
+| `date_utix`| int | this is what chromadb uses to measure dates |
 | `from` | string | Sender |
 | `to` | string | Recipient |
 | `subject` | string | |
