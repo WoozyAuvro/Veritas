@@ -74,6 +74,6 @@ if __name__ == "__main__":
     elif doc_type == "email":
         summary = load_email_folder(folder)
     else:
-        raise ValueError('receipt spelling bhul korso abar')
+        raise ValueError('wrong doctype')
 
     print(json.dumps(summary, indent=2))

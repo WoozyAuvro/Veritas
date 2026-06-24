@@ -5,7 +5,7 @@ import pandas as pd
  
 from storage.db import get_connection
  
-# creates the df for the detecction engines cz i wanna make the engines myself
+# creates the df for the detecction engines
 def load_transactions():
     conn = get_connection()
     df = pd.read_sql_query("SELECT * FROM transactions", conn)

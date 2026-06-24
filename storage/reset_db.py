@@ -1,18 +1,18 @@
 from storage.db import get_connection
 
-def drop_flags():
+def clear_flags():
     conn = get_connection()
-    conn.execute("DROP TABLE IF EXISTS flags")
+    conn.execute("DELETE FROM flags")
     conn.commit()
     conn.close()
-    print("flags table dropped.")
+    print("wiped all flags")
 
-def drop_transactions():
+def clear_transactions():
     conn = get_connection()
-    conn.execute("DROP TABLE IF EXISTS transactions")
+    conn.execute("DELETE FROM transactions")
     conn.commit()
     conn.close()
-    print("transactions table dropped.")
+    print("wiped all transactions")
 
 def drop_all():
     conn = get_connection()
@@ -20,7 +20,7 @@ def drop_all():
     conn.execute("DROP TABLE IF EXISTS transactions")
     conn.commit()
     conn.close()
-    print("all tables dropped.")
+    print("all tables dropped. need to reinitialize storage.db")
 
 if __name__ == "__main__":
-    drop_flags()
+    drop_all()
