@@ -2,7 +2,6 @@
 import json
 import os
 import time
-from pathlib import Path
 
 import chromadb
 import requests
@@ -10,8 +9,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-CHROMA_FOLDER = Path(__file__).parent.parent / "data" / "chroma"
 COLLECTION_NAME = "fraud_documents"
+CHROMA_HOST = os.getenv("CHROMA_HOST", "localhost")
+CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
 
 GROQ_URL = "https://api.groq.com/openai/v1"
 GROQ_CHAT_MODEL = "openai/gpt-oss-20b"
@@ -90,9 +90,7 @@ def get_embedding(text):
 
 # creates chroma db
 def get_collection():
-    
-    CHROMA_FOLDER.mkdir(parents=True, exist_ok=True)
-    client = chromadb.PersistentClient(path=str(CHROMA_FOLDER))
+    client = chromadb.HttpClient(host=CHROMA_HOST, port=CHROMA_PORT)
     return client.get_or_create_collection(name=COLLECTION_NAME)
 
 

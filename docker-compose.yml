@@ -1,0 +1,26 @@
+services:
+  backend:
+    build: .
+    env_file:
+      - .env
+    environment:
+      DB_PATH: /app/data/fraud.sqlite3
+      CHROMA_HOST: chromadb
+      CHROMA_PORT: 8000
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - chromadb
+
+  chromadb:
+    image: chromadb/chroma:latest
+    ports:
+      - "8000:8000"
+    environment:
+      IS_PERSISTENT: "TRUE"
+      PERSIST_DIRECTORY: /chroma/chroma
+    volumes:
+      - chroma_data:/chroma/chroma
+
+volumes:
+  chroma_data:

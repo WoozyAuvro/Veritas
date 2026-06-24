@@ -1,0 +1,12 @@
+.git
+.env
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Keep ingested documents, local Chroma files, and SQLite databases out of images.
+data/
+email_folder/
+receipts_folder/
+*.sqlite3
+*.db

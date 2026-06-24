@@ -1,8 +1,10 @@
 
 import sqlite3
+import os
 from pathlib import Path
 
-DB_PATH = Path(__file__).parent.parent / "data" / "fraud.sqlite3"
+DEFAULT_DB_PATH = Path(__file__).parent.parent / "data" / "fraud.sqlite3"
+DB_PATH = Path(os.getenv("DB_PATH", DEFAULT_DB_PATH)).expanduser()
 SCHEMA_PATH = Path(__file__).parent / "schema.sql"
 
 
