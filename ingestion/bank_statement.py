@@ -80,8 +80,8 @@ def check_mapping_is_valid(mapping, headers):
 # turns it into a proper dataframe
 def apply_mapping(df, mapping):
     
-    out = pd.DataFrame()
-    out["date"] = pd.to_datetime(df[mapping["date_column"]], errors="coerce", dayfirst=True).dt.strftime("%Y-%m-%d")
+    out = pd.DataFrame() # day_first is False
+    out["date"] = pd.to_datetime(df[mapping["date_column"]], errors="coerce", dayfirst=False).dt.strftime("%Y-%m-%d")
     out["description"] = df[mapping["description_column"]].fillna("") if mapping.get("description_column") else ""
     out["amount"] = parse_money(df[mapping["amount_column"]])
     out["balance"] = parse_money(df[mapping["balance_column"]]) if mapping.get("balance_column") else None

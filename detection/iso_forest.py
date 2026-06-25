@@ -6,7 +6,7 @@ import pandas as pd
 MIN_TRANSACTIONS_FOR_ISOFOREST = 10
 
 # this is basically the % of rows we expect to be anomalies
-CONTAMINATION = 0.035
+CONTAMINATION = 0.03
 
 
 # these are what the model scores on

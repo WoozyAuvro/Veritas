@@ -150,7 +150,7 @@ def detect_invoice_matching(df=None):
                         f"[CONTEXT]: Amount Inflation Risk. Invoice '{tx_raw_inv}' was matched to a valid receipt record, "
                         f"but the cleared bank amount does not agree with the source document. "
                         f"This discrepancy of {amount_diff} BDT may indicate invoice tampering, "
-                        f"overbilling, or manual override of the payment amount after approval."
+                        f"overbilling, or manual override of the payment amount after approval. The more the discrepancy is the more suspicious it is"
                     )
                 })
 

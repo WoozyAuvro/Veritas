@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # authority threshold
-THRESHOLD = 80000 # should be around the 75th percentile of all the transactions apparently
+THRESHOLD = 100000 # should be around the 75th percentile of all the transactions apparently
 # % below the threshold that will be considered skirting
 SKIRTING_PERCENT = 0.20
 ENOUGH_DAYS = 10

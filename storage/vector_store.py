@@ -51,7 +51,7 @@ def post_with_retry(url, headers, body, provider_name, max_retries=4):
 
     raise RuntimeError("kaj korena")
 
-# sending prompts to groq
+# sending prompts to groq for json
 def ask_llm_for_json(system_prompt, user_prompt):
     
     headers = {
