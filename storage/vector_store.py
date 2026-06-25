@@ -14,7 +14,7 @@ CHROMA_FOLDER = Path(__file__).parent.parent / "data" / "chroma"
 COLLECTION_NAME = "fraud_documents"
 
 GROQ_URL = "https://api.groq.com/openai/v1"
-GROQ_CHAT_MODEL = "openai/gpt-oss-20b"
+GROQ_CHAT_MODEL = "llama-3.1-8b-instant"
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1"
 OPENROUTER_EMBEDDING_MODEL = "nvidia/llama-nemotron-embed-vl-1b-v2:free"
@@ -36,12 +36,12 @@ def post_with_retry(url, headers, body, provider_name, max_retries=4):
     for attempt in range(max_retries):
         response = requests.post(url, headers=headers, json=body, timeout=90)
 
-        if response.status_code == 429:
+        if response.status_code in (429, 520):
             if attempt == max_retries - 1:
                 raise RuntimeError(
                     f"{provider_name} rate limit hit too many times in a row. "
                 )
-            print(f"rate limited by {provider_name}  {wait_seconds}s before retrying")
+            print(f"[{response.status_code}] {provider_name} error, retrying in {wait_seconds}s")
             time.sleep(wait_seconds)
             wait_seconds *= 2  # back off more each time
             continue
