@@ -14,7 +14,7 @@ CHROMA_FOLDER = Path(__file__).parent.parent / "data" / "chroma"
 COLLECTION_NAME = "fraud_documents"
 
 GROQ_URL = "https://api.groq.com/openai/v1"
-GROQ_CHAT_MODEL = "openai/gpt-oss-20b"
+GROQ_CHAT_MODEL = "llama-3.1-8b-instant"
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1"
 OPENROUTER_EMBEDDING_MODEL = "nvidia/llama-nemotron-embed-vl-1b-v2:free"
