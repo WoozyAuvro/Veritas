@@ -138,3 +138,32 @@ def delete_all_documents():
     if all_ids:
         collection.delete(ids=all_ids)
     return len(all_ids)
+
+def search_documents(query_text, n_results=3, doc_type=None):
+    """
+    Transforms a natural language string into vectors and queries ChromaDB.
+    Returns a condensed string payload ready for an LLM context window.
+    """
+    collection = get_collection()
+
+    query_embedding = get_embedding(query_text)
+    
+    where_filter = {"doc_type": doc_type} if doc_type else None
+    
+    results = collection.query(
+        query_embeddings=[query_embedding],
+        n_results=n_results,
+        where=where_filter
+    )
+    
+    if not results or not results["documents"] or len(results["documents"][0]) == 0:
+        return "No matching document entries found for this query in the vector index."
+        
+    formatted_output = ""
+    for i in range(len(results["ids"][0])):
+        doc_id = results["ids"][0][i]
+        text = results["documents"][0][i]
+        meta = results["metadatas"][0][i]
+        formatted_output += f"\n[Document ID: {doc_id}] | Type: {meta.get('doc_type', 'UNKNOWN')} | Date: {meta.get('date', 'UNKNOWN')}\nContent: {text}\n---"
+        
+    return formatted_output
