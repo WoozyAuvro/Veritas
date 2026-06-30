@@ -3,11 +3,11 @@ import pandas as pd
 import numpy as np
 
 # only test vendors with transactions in this range
-MIN_TRANSACTIONS = 10       # below this, chi-square is statistically meaningless
-MAX_TRANSACTIONS = 50       # above this, other engines (z-score, isolation forest) handle it
+MIN_TRANSACTIONS = 10       # below this chi-square is statistically meaningless
+MAX_TRANSACTIONS = 50       # above this other engines (z-score, isolation forest) handle it
 
 NUMBER_OF_LARGEST_DIGITS = 2
-CRITICAL_CHI2 = 15.51       # 8 degrees of freedom (digits 1-9), alpha = 0.05
+CRITICAL_CHI2 = 15.51       # 8 degrees of freedom (digits 1-9)
 
 def detect_benfords_law(df=None):
 
