@@ -72,7 +72,7 @@ def execute_agent_investigation(flag_cluster_summary, max_turns=5):
             "messages": message_history,
             "tools": FORENSIC_TOOLS,
             "tool_choice": "auto",
-            "temperature": 0.2,
+            "temperature": 0.05,
         }
 
         try:
@@ -83,7 +83,9 @@ def execute_agent_investigation(flag_cluster_summary, max_turns=5):
 
         message_node = response_json["choices"][0]["message"]
         message_history.append(message_node)
-
+        with open("history_logs.txt", "+a") as f:
+            f.write(str(message_history))
+        
         tool_calls = message_node.get("tool_calls")
         if not tool_calls:
             print("Agent reached a definitive conclusion.")
@@ -101,7 +103,7 @@ def execute_agent_investigation(flag_cluster_summary, max_turns=5):
             elif function_name == "search_documents":
                 tool_result_text = search_documents(
                     query_text=arguments.get("query_text", ""),
-                    n_results=arguments.get("n_results", 3),
+                    n_results=arguments.get("n_results", 2),
                 )
             elif function_name == "verify_corporate_registry":
                 tool_result_text = verify_corporate_registry(arguments.get("vendor_name", ""))

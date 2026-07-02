@@ -35,7 +35,7 @@ def query_sql_ledger(query: str) -> str:
         return f"SQL Error: {exc}"
 
 
-def search_document_vectors(semantic_query: str, n_results: int = 5) -> str:
+def search_document_vectors(semantic_query: str, n_results: int = 2) -> str:
     """Search the document index for semantically relevant emails and receipts."""
     try:
         return vector_search_documents(query_text=semantic_query, n_results=n_results)
