@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veritas — Fraud Investigation Workspace</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">AI-powered fraud investigation</p>
+        <h1>Upload evidence, run the analysis, and inspect the forensic story.</h1>
+        <p class="hero__text">
+          Drop bank statements, receipts, and emails into the workspace. The system will index the data,
+          run the fraud detectors, and let the forensic agent investigate the suspicious cases.
+        </p>
+        <div class="hero__actions">
+          <button id="demo-btn" class="btn btn--primary">Use Demo Data</button>
+          <button id="run-btn" class="btn btn--secondary">Run Full Analysis</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="upload-grid">
+        <div class="card">
+          <h2>Bank Statement</h2>
+          <label class="dropzone" for="bank-statement">
+            <span id="bank-file-label">Choose a CSV file</span>
+            <input id="bank-statement" type="file" accept=".csv" />
+          </label>
+        </div>
+
+        <div class="card">
+          <h2>Emails</h2>
+          <label class="dropzone" for="emails">
+            <span id="email-file-label">Choose one or more .eml/.txt files</span>
+            <input id="emails" type="file" accept=".eml,.txt" multiple />
+          </label>
+        </div>
+
+        <div class="card">
+          <h2>Receipts</h2>
+          <label class="dropzone" for="receipts">
+            <span id="receipt-file-label">Choose one or more .pdf/.txt files</span>
+            <input id="receipts" type="file" accept=".pdf,.txt" multiple />
+          </label>
+        </div>
+      </section>
+
+      <section id="status-panel" class="panel hidden">
+        <div class="panel__header">
+          <h2>Analysis Status</h2>
+          <div id="status-pill" class="status-pill">Preparing</div>
+        </div>
+        <div id="progress-log" class="log-list"></div>
+      </section>
+
+      <section id="results-panel" class="panel hidden">
+        <h2>Results</h2>
+        <div id="results-summary" class="results-summary"></div>
+        <div id="results-logs" class="results-logs"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Built for rapid demos and end-to-end fraud investigation workflows.</p>
+    </footer>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

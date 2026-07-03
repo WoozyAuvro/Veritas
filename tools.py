@@ -91,22 +91,5 @@ FORENSIC_TOOLS = [
             },
         },
     },
-    {
-        "type": "function",
-        "function": {
-            "name": "verify_corporate_registry",
-            "description": "Check whether a vendor appears in the local corporate registry.",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "vendor_name": {
-                        "type": "string",
-                        "description": "Vendor name to validate.",
-                    }
-                },
-                "required": ["vendor_name"],
-            },
-        },
-    },
 ]
 
