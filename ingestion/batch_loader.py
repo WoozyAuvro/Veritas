@@ -7,7 +7,7 @@ from ingestion.email_ingest import ingest_email
 
 DELAY_BETWEEN_FILES = 1
 
-# jodi file extension bhul hoy dekh amio class use korte pari haha
+# for wrong file extensions
 class UnsupportedFileError(Exception):
     pass
 

@@ -38,9 +38,12 @@ def detect_isolation_forest_outliers(df=None):
         group = group.sort_values("date").copy()
 
         # days since the previous transaction with this vendor
-        group["days_since_last_txn"] = (
-            group["date"].diff().dt.days.fillna(0) # gotta love diff
-        )
+        group["days_since_last_txn"] = (group["date"].diff().dt.days)
+        
+        # dropping since the first row its days_since_last_txn is NaN 
+        # keeping it as 0 unfairly flags it as anomalous
+        group = group.dropna(subset=["days_since_last_txn"])
+        
 
         X = group[FEATURES].values
 

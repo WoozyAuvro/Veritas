@@ -30,7 +30,7 @@ def ingest_bank_statement(csv_path, upload_batch_id=None):
         "column_mapping_used": mapping,
     }
 
-# first 5 ta row llm ke pathay jodi different columns thake ogula ektar shathe arekta connect kore cz ekekta bank statement ekek rokom and ai ke ask korsi it said etai easier
+# sends the first 5 rows to llm and maps the columns
 def get_column_mapping(headers, sample_rows):
     
     system_prompt = (
@@ -62,7 +62,7 @@ def get_column_mapping(headers, sample_rows):
     check_mapping_is_valid(mapping, headers)
     return mapping
 
-# checks if the mapping was done properly. asha kori eta kokhono lagbena haha
+# checks if the mapping was done properly. lets hope we never have to use it lol
 def check_mapping_is_valid(mapping, headers):
     required_keys = {"date_column", "description_column", "amount_column", "balance_column",
                       "reference_column", "vendor_column", "invoice_column"}
@@ -71,7 +71,7 @@ def check_mapping_is_valid(mapping, headers):
         raise ValueError(f"LLM mapping is missing keys: {missing}")
 
     if not mapping.get("amount_column"):
-        raise ValueError("Mapping must include amount_column")
+        raise ValueError("mapping must include amount_column")
 
     for key, value in mapping.items():
         if value is not None and value not in headers:
@@ -96,7 +96,7 @@ def text_column(df, column_name):
         return df[column_name].fillna("")
     return ""
 
-# comma's shoray, currency symbol and handles negative
+# strips comma, currency symbol and handles negative
 def parse_money(series):
     text = series.fillna("").astype(str).str.strip()
     is_negative = text.str.startswith("(") & text.str.endswith(")")
