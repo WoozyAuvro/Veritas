@@ -57,7 +57,6 @@ def query_sql_ledger(query: str) -> str:
         return f"SQL Error: {exc}"
 
 
-<<<<<<< HEAD
 def query_sql_dataframe(query: str) -> pd.DataFrame:
     """Execute a read-only SQL query and return a DataFrame."""
     cleaned_query = _normalize_sql_query(query)
@@ -230,9 +229,6 @@ def stringify_vector_results(payload: Any) -> str:
 
 
 def search_document_vectors(semantic_query: str, n_results: int = 8) -> str:
-=======
-def search_document_vectors(semantic_query: str, n_results: int = 2) -> str:
->>>>>>> 28b30f154a041e9c9d1e3f5418379f56635deec7
     """Search the document index for semantically relevant emails and receipts."""
     if vector_search_documents is None:
         return "Vector DB Error: search_documents is not available from storage.vector_store"
