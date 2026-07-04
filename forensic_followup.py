@@ -34,9 +34,25 @@ except Exception:  # pragma: no cover
     get_groq_api_key = None
     post_with_retry = None
 
+from dotenv import load_dotenv
+
 from tools import list_all_formatted_documents, search_document_vectors
 
-RESULTS_PATH = Path("data/forensic_case_results.json")
+PROJECT_ROOT = Path(__file__).resolve().parent
+
+
+def _resolve_path(env_var: str, default: Path) -> Path:
+    raw = os.getenv(env_var)
+    if raw:
+        path = Path(raw).expanduser()
+        if not path.is_absolute():
+            path = PROJECT_ROOT / path
+        return path
+    return default
+
+
+load_dotenv(PROJECT_ROOT / ".env")
+RESULTS_PATH = _resolve_path("FORENSIC_RESULTS_PATH", PROJECT_ROOT / "data" / "forensic_case_results.json")
 USE_GROQ_QA = os.getenv("FORENSIC_USE_GROQ_QA", "0") == "1"
 
 QUESTION_STOPWORDS = {

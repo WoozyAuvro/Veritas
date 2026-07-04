@@ -3,12 +3,14 @@ import os
 import re
 from collections import Counter, defaultdict
 from email.utils import parseaddr
+from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Set, Tuple
 
 import pandas as pd
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
+from storage.db import DB_PATH as SQLITE_DB_PATH, init_db
 from storage.vector_store import GROQ_CHAT_MODEL, GROQ_URL, get_groq_api_key, post_with_retry
 from tools import (
     get_vendor_documents,
@@ -20,9 +22,12 @@ from tools import (
     verify_corporate_registry,
 )
 
-load_dotenv()
-ENGINE = create_engine("sqlite:///data/fraud.sqlite3")
+PROJECT_ROOT = Path(__file__).resolve().parent
+load_dotenv(PROJECT_ROOT / ".env")
+init_db()
+ENGINE = create_engine(f"sqlite:///{SQLITE_DB_PATH.as_posix()}")
 USE_GROQ_SYNTHESIS = os.getenv("FORENSIC_USE_GROQ", "0") == "1"
+RESULTS_PATH = Path(os.getenv("FORENSIC_RESULTS_PATH", str(PROJECT_ROOT / "data" / "forensic_case_results.json")))
 
 
 # General keyword groups
@@ -1086,6 +1091,32 @@ Draft JSON:
         return base_summary_json
 
 
+def _ensure_flags_present() -> int:
+    """Run the detection pipeline if the flags table is empty so the agent can analyze something."""
+    try:
+        flag_count = int(pd.read_sql("SELECT COUNT(*) AS c FROM flags", ENGINE).iloc[0]["c"])
+    except Exception as exc:
+        print(f"Warning: could not inspect flags table: {exc}")
+        return 0
+
+    if flag_count > 0:
+        print(f"Found {flag_count} existing flag row(s) in the database.")
+        return flag_count
+
+    print("No flags found in the database. Running the detection engines before building reports...")
+    try:
+        from detection.run_engines import run_engines
+
+        new_flags = run_engines()
+        if new_flags:
+            print(f"Detection produced {len(new_flags)} flag(s).")
+            return len(new_flags)
+    except Exception as exc:
+        print(f"Warning: automatic detection run failed: {exc}")
+
+    return 0
+
+
 def execute_agent_investigation(flag_cluster_summary, max_turns=5):
     """
     Public entry point preserved. Builds compact per-vendor case packets,
@@ -1183,6 +1214,8 @@ def _build_final_relationship_summary(reports: List[Dict[str, object]]) -> Dict[
     }
 
 if __name__ == "__main__":
+    _ensure_flags_present()
+
     try:
         vendor_df = pd.read_sql(
             """
@@ -1197,6 +1230,10 @@ if __name__ == "__main__":
     except Exception as exc:
         print(f"Unable to read flags table: {exc}")
         raise SystemExit(1)
+
+    if vendor_df.empty:
+        print("No vendor-level flags were available to analyze. The run completed without generating reports.")
+        raise SystemExit(0)
 
     parsed_reports: List[Dict[str, object]] = []
 
@@ -1228,7 +1265,7 @@ if __name__ == "__main__":
     try:
         from pathlib import Path
 
-        results_path = Path("data/forensic_case_results.json")
+        results_path = RESULTS_PATH
         results_path.parent.mkdir(parents=True, exist_ok=True)
         results_path.write_text(
             json.dumps(

@@ -1,0 +1,34 @@
+{
+  "dataset_name": "Dhaka Civil Works Fraud Demo v4",
+  "company": "Dhaka Civil Works Ltd.",
+  "date_range": {
+    "start": "2026-01-03",
+    "end": "2026-08-30"
+  },
+  "bank_transactions": 359,
+  "receipt_txt_files": 276,
+  "email_eml_files": 269,
+  "intended_threshold_bdt": 100000,
+  "target_flag_range": "28-32 total flags",
+  "true_fraud_vendors": [
+    "Apex Buildmart",
+    "Swift Cargo BD",
+    "Strata Consult BD"
+  ],
+  "false_positive_vendors": [
+    "Northstar Survey Services",
+    "Meghna Sand & Aggregates",
+    "OfficeLease Holdings",
+    "Rahman Steel & Iron",
+    "Padma Equipment Rental",
+    "Bengal Safety Gear",
+    "Bismillah Cement Co."
+  ],
+  "do_not_ingest": [
+    "ground_truth_anomalies_v4.csv",
+    "DEMO_STORYLINE_V4.md",
+    "README_DEMO_V4.md",
+    "manifest.json"
+  ],
+  "notes": "Built for flag-centered retrieval. Fraud emails are intentionally subtle but searchable by vendor, invoice number, amount, and date. Several duplicate receipts are intentional false positives."
+}

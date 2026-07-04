@@ -7,6 +7,8 @@ from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 import pandas as pd
 from sqlalchemy import create_engine
 
+from storage.db import DB_PATH as SQLITE_DB_PATH
+
 try:
     from storage.vector_store import search_documents as vector_search_documents
 except Exception:  # pragma: no cover
@@ -17,7 +19,20 @@ try:
 except Exception:  # pragma: no cover
     vector_list_documents = None
 
-engine = create_engine("sqlite:///data/fraud.sqlite3")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+
+def _resolve_path(env_var: str, default: Path) -> Path:
+    raw = os.getenv(env_var)
+    if raw:
+        path = Path(raw).expanduser()
+        if not path.is_absolute():
+            path = PROJECT_ROOT / path
+        return path
+    return default
+
+
+engine = create_engine(f"sqlite:///{SQLITE_DB_PATH.as_posix()}")
 
 
 
@@ -414,8 +429,11 @@ def _load_registry_rows() -> List[str]:
     paths = []
     env_path = os.getenv("VENDOR_REGISTRY_CSV")
     if env_path:
-        paths.append(Path(env_path))
-    paths.extend([Path("data/vendor_registry.csv"), Path("vendor_registry.csv")])
+        path = Path(env_path).expanduser()
+        if not path.is_absolute():
+            path = PROJECT_ROOT / path
+        paths.append(path)
+    paths.extend([PROJECT_ROOT / "data" / "vendor_registry.csv", PROJECT_ROOT / "vendor_registry.csv"])
 
     for path in paths:
         if not path.exists():

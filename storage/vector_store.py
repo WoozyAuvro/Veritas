@@ -8,13 +8,26 @@ import chromadb
 import requests
 from dotenv import load_dotenv
 
-load_dotenv()
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-CHROMA_FOLDER = Path(__file__).parent.parent / "data" / "chroma"
+
+def _resolve_path(env_var: str, default: Path) -> Path:
+    raw = os.getenv(env_var)
+    if raw:
+        path = Path(raw).expanduser()
+        if not path.is_absolute():
+            path = PROJECT_ROOT / path
+        return path
+    return default
+
+
+load_dotenv(PROJECT_ROOT / ".env")
+
+CHROMA_FOLDER = _resolve_path("CHROMA_PATH", PROJECT_ROOT / "data" / "chroma")
 COLLECTION_NAME = "fraud_documents"
 
 GROQ_URL = "https://api.groq.com/openai/v1"
-GROQ_CHAT_MODEL = "llama-3.1-8b-instant"
+GROQ_CHAT_MODEL = "qwen/qwen3-32b"#"llama-3.1-8b-instant"
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1"
 OPENROUTER_EMBEDDING_MODEL = "nvidia/llama-nemotron-embed-vl-1b-v2:free"
