@@ -1146,6 +1146,88 @@ def execute_agent_investigation(flag_cluster_summary, max_turns=5):
     return "\n\n".join(reports)
 
 
+def run_full_analysis(interactive_followup: bool = False) -> Dict[str, object]:
+    """Run the forensic analysis end-to-end and persist the results for the API."""
+    _ensure_flags_present()
+
+    try:
+        vendor_df = pd.read_sql(
+            """
+            SELECT vendor_name, COUNT(*) AS flag_count
+            FROM flags
+            WHERE vendor_name IS NOT NULL AND TRIM(vendor_name) <> ''
+            GROUP BY vendor_name
+            ORDER BY flag_count DESC, vendor_name ASC;
+            """,
+            ENGINE,
+        )
+    except Exception as exc:
+        print(f"Unable to read flags table: {exc}")
+        raise
+
+    if vendor_df.empty:
+        print("No vendor-level flags were available to analyze. The run completed without generating reports.")
+        return {
+            "vendor_reports": [],
+            "final_connected_summary": {
+                "high_risk_vendors": [],
+                "summary": "No vendor-level flags were available to analyze.",
+            },
+        }
+
+    parsed_reports: List[Dict[str, object]] = []
+
+    for _, row in vendor_df.iterrows():
+        vendor_name = str(row["vendor_name"]).strip()
+        summary_text = query_sql_ledger(
+            f"""
+            SELECT vendor_name, date, amount, method, reason
+            FROM flags
+            WHERE vendor_name = '{_sql_escape(vendor_name)}'
+            ORDER BY date ASC, method ASC;
+            """
+        )
+        final_verdict = execute_agent_investigation(summary_text)
+        print("\n========= VENDOR FORENSIC REPORT =========")
+        print(final_verdict)
+        try:
+            parsed_reports.append(json.loads(final_verdict))
+        except Exception:
+            pass
+
+    final_connected_summary = _build_final_relationship_summary(parsed_reports)
+
+    print("\n========= FINAL CONNECTED FRAUD SUMMARY =========")
+    print(json.dumps(final_connected_summary, indent=2, ensure_ascii=False))
+
+    results_path = RESULTS_PATH
+    results_path.parent.mkdir(parents=True, exist_ok=True)
+    results_path.write_text(
+        json.dumps(
+            {
+                "vendor_reports": parsed_reports,
+                "final_connected_summary": final_connected_summary,
+            },
+            indent=2,
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+
+    if interactive_followup and os.getenv("FORENSIC_INTERACTIVE_QA", "1") == "1":
+        try:
+            from forensic_followup import interactive_followup_loop
+
+            interactive_followup_loop(parsed_reports, final_connected_summary)
+        except Exception as exc:
+            print(f"Warning: follow-up Q&A mode could not start: {exc}")
+
+    return {
+        "vendor_reports": parsed_reports,
+        "final_connected_summary": final_connected_summary,
+        "results_path": str(results_path),
+    }
+
 
 # Final cross-vendor relationship summary
 
@@ -1214,79 +1296,4 @@ def _build_final_relationship_summary(reports: List[Dict[str, object]]) -> Dict[
     }
 
 if __name__ == "__main__":
-    _ensure_flags_present()
-
-    try:
-        vendor_df = pd.read_sql(
-            """
-            SELECT vendor_name, COUNT(*) AS flag_count
-            FROM flags
-            WHERE vendor_name IS NOT NULL AND TRIM(vendor_name) <> ''
-            GROUP BY vendor_name
-            ORDER BY flag_count DESC, vendor_name ASC;
-            """,
-            ENGINE,
-        )
-    except Exception as exc:
-        print(f"Unable to read flags table: {exc}")
-        raise SystemExit(1)
-
-    if vendor_df.empty:
-        print("No vendor-level flags were available to analyze. The run completed without generating reports.")
-        raise SystemExit(0)
-
-    parsed_reports: List[Dict[str, object]] = []
-
-    for _, row in vendor_df.iterrows():
-        vendor_name = str(row["vendor_name"]).strip()
-        summary_text = query_sql_ledger(
-            f"""
-            SELECT vendor_name, date, amount, method, reason
-            FROM flags
-            WHERE vendor_name = '{_sql_escape(vendor_name)}'
-            ORDER BY date ASC, method ASC;
-            """
-        )
-        final_verdict = execute_agent_investigation(summary_text)
-        print("\n========= VENDOR FORENSIC REPORT =========")
-        print(final_verdict)
-        try:
-            parsed_reports.append(json.loads(final_verdict))
-        except Exception:
-            pass
-
-    final_connected_summary = _build_final_relationship_summary(parsed_reports)
-
-    print("\n========= FINAL CONNECTED FRAUD SUMMARY =========")
-    print(json.dumps(final_connected_summary, indent=2, ensure_ascii=False))
-
-    # Save results so a separate follow-up Q&A process can answer later questions
-    # using both the case reports and fresh email/receipt searches.
-    try:
-        from pathlib import Path
-
-        results_path = RESULTS_PATH
-        results_path.parent.mkdir(parents=True, exist_ok=True)
-        results_path.write_text(
-            json.dumps(
-                {
-                    "vendor_reports": parsed_reports,
-                    "final_connected_summary": final_connected_summary,
-                },
-                indent=2,
-                ensure_ascii=False,
-            ),
-            encoding="utf-8",
-        )
-    except Exception as exc:
-        print(f"Warning: could not save forensic_case_results.json: {exc}")
-
-    # Optional terminal follow-up mode. Press Enter immediately to exit.
-    # Disable with: $env:FORENSIC_INTERACTIVE_QA="0"
-    if os.getenv("FORENSIC_INTERACTIVE_QA", "1") == "1":
-        try:
-            from forensic_followup import interactive_followup_loop
-
-            interactive_followup_loop(parsed_reports, final_connected_summary)
-        except Exception as exc:
-            print(f"Warning: follow-up Q&A mode could not start: {exc}")
+    run_full_analysis(interactive_followup=True)
