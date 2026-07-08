@@ -25,7 +25,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://veritas-frontend-xo0w.onrender.com/"
+        "https://veritas-frontend-xo0w.onrender.com/",
         "http://127.0.0.1:3000",
         "http://localhost:3000",
     ],
