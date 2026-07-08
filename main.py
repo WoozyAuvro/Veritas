@@ -165,18 +165,14 @@ def _run_analysis_workflow(demo: bool = True) -> Dict[str, Any]:
     print(f"[analysis-workflow] Detection finished with {len(flags)} flag(s).")
 
     print("[analysis-workflow] Starting forensic agent job...")
-    agent_job_id = _start_job("forensic-agent", _run_agent_job, demo)
-    agent_job = JOB_REGISTRY[agent_job_id]
-    agent_job["done"].wait(timeout=3600)
-
-    if agent_job["status"] != "completed":
-        raise RuntimeError(agent_job.get("error") or "Forensic agent job did not complete successfully")
+    # Direct synchronous call executes in parent thread context
+    agent_result = _run_agent_job(demo) 
 
     return {
         "status": "completed",
         "flags_generated": len(flags),
-        "agent_job_id": agent_job_id,
-        "agent_result": agent_job.get("result"),
+        "agent_job_id": "embedded",
+        "agent_result": agent_result,
     }
 
 
@@ -218,7 +214,15 @@ def stream_job_logs(job_id: str):
                 break
             time.sleep(0.1)
 
-    return StreamingResponse(generate(), media_type="text/plain")
+    return StreamingResponse(
+        generate(), 
+        media_type="text/plain",
+        headers={
+            "X-Accel-Buffering": "no",
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive"
+        }
+    )
 
 @app.post("/start-analysis")
 async def start_agent(demo: bool = True):
