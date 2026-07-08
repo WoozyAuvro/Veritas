@@ -3,6 +3,7 @@ check_emails.py
 check_receipt.py
 .env
 __pycache__
-fraud.sqlite3
+
 email_folder
 receipts_folder
+tmp
