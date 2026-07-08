@@ -25,7 +25,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://veritas-frontend-xo0w.onrender.com/",
+        "https://veritas-frontend-xo0w.onrender.com",
         "http://127.0.0.1:3000",
         "http://localhost:3000",
     ],
@@ -33,7 +33,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-//app.include_router(...)
+#app.include_router(...)
 PROJECT_ROOT = Path(__file__).resolve().parent
 
 
