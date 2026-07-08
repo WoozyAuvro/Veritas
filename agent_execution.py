@@ -10,6 +10,9 @@ import pandas as pd
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
+import storage.db as storage_db
+import storage.vector_store as vector_store
+import tools as tools_module
 from storage.db import DB_PATH as SQLITE_DB_PATH, init_db
 from storage.vector_store import GROQ_CHAT_MODEL, GROQ_URL, get_groq_api_key, post_with_retry
 from tools import (
@@ -28,6 +31,8 @@ init_db()
 ENGINE = create_engine(f"sqlite:///{SQLITE_DB_PATH.as_posix()}")
 USE_GROQ_SYNTHESIS = os.getenv("FORENSIC_USE_GROQ", "0") == "1"
 RESULTS_PATH = Path(os.getenv("FORENSIC_RESULTS_PATH", str(PROJECT_ROOT / "data" / "forensic_case_results.json")))
+DEMO_DATA_ROOT = PROJECT_ROOT / "data"
+TEMP_DATA_ROOT = PROJECT_ROOT / "data" / "tmp"
 
 
 # General keyword groups
@@ -187,6 +192,33 @@ def _docs_blob(case_packet: Dict[str, str]) -> str:
 def _add_unique(items: List[str], value: str) -> None:
     if value and value not in items:
         items.append(value)
+
+
+def _analysis_data_root(demo: bool) -> Path:
+    return DEMO_DATA_ROOT if demo else TEMP_DATA_ROOT
+
+
+def configure_analysis_storage(demo: bool) -> Path:
+    global ENGINE, RESULTS_PATH
+
+    data_root = _analysis_data_root(demo)
+    db_path = data_root / "fraud.sqlite3"
+    chroma_path = data_root / "chroma"
+    results_path = data_root / "forensic_case_results.json"
+
+    os.environ["FRAUD_DB_PATH"] = str(db_path)
+    os.environ["CHROMA_PATH"] = str(chroma_path)
+    os.environ["FORENSIC_RESULTS_PATH"] = str(results_path)
+
+    storage_db.DB_PATH = db_path
+    vector_store.CHROMA_FOLDER = chroma_path
+    tools_module.SQLITE_DB_PATH = db_path
+    tools_module.engine = create_engine(f"sqlite:///{db_path.as_posix()}")
+    ENGINE = create_engine(f"sqlite:///{db_path.as_posix()}")
+    RESULTS_PATH = results_path
+
+    init_db()
+    return data_root
 
 
 
@@ -1146,8 +1178,9 @@ def execute_agent_investigation(flag_cluster_summary, max_turns=5):
     return "\n\n".join(reports)
 
 
-def run_full_analysis(interactive_followup: bool = False) -> Dict[str, object]:
+def run_full_analysis(demo: bool = True, interactive_followup: bool = False) -> Dict[str, object]:
     """Run the forensic analysis end-to-end and persist the results for the API."""
+    configure_analysis_storage(demo)
     _ensure_flags_present()
 
     try:
@@ -1296,4 +1329,4 @@ def _build_final_relationship_summary(reports: List[Dict[str, object]]) -> Dict[
     }
 
 if __name__ == "__main__":
-    run_full_analysis(interactive_followup=True)
+    run_full_analysis(demo=True, interactive_followup=True)

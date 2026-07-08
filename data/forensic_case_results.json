@@ -1,0 +1,628 @@
+{
+  "vendor_reports": [
+    {
+      "vendor_name": "Rahman Steel & Iron",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Rahman Steel & Iron was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Rahman Steel & Iron is that a bank-cleared payment has no matching receipt/source document in the allowed window, vendor-matched documents explain tax, fee, transport, loading, or measurement adjustments, and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Shaila Rahman",
+        "Imran Ahmed",
+        "Tariq Molla",
+        "Nusrat Karim",
+        "Ashulia Bailey bridge",
+        "Ruposhi Stationery"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Swift Cargo BD",
+      "risk_score": 89,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Swift Cargo BD was used to route questionable payments through payment cleared without matching source document and amounts may be manually structured or fabricated. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Swift Cargo BD is that a bank-cleared payment has no matching receipt/source document in the allowed window, the vendor's leading-digit distribution strongly deviates from Benford's Law (chi-square 194.93), and very high Benford deviation without a matching business explanation indicates possible fabricated-billing or shell-vendor risk. No vendor-matched explanation was strong enough to neutralize the risk.",
+      "people_involved": [
+        "Rafiq Hossain",
+        "Tariq Molla"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then review how invoice amounts were selected and who prepared the invoices Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Bengal Safety Gear",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Bengal Safety Gear was used to route questionable payments through payment cleared without matching source document and amounts may be manually structured or fabricated. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Bengal Safety Gear is that a bank-cleared payment has no matching receipt/source document in the allowed window, the vendor's leading-digit distribution strongly deviates from Benford's Law (chi-square 27.96), and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Shaila Rahman",
+        "Nusrat Karim",
+        "Imran Ahmed"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then review how invoice amounts were selected and who prepared the invoices Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Northstar Survey Services",
+      "risk_score": 82,
+      "confidence": 81,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Northstar Survey Services was used to route questionable payments through payment cleared without matching source document and amounts may be manually structured or fabricated. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Northstar Survey Services is that a bank-cleared payment has no matching receipt/source document in the allowed window, the vendor's leading-digit distribution strongly deviates from Benford's Law (chi-square 22.57), vendor-matched documents describe a duplicate scan/upload/copy rather than a duplicate payment, and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Imran Ahmed",
+        "Nusrat Karim",
+        "Shaila Rahman",
+        "Tariq Molla"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then review how invoice amounts were selected and who prepared the invoices Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Strata Consult BD",
+      "risk_score": 100,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Strata Consult BD was not just an unusual vendor, but part of a payment path that shows payment cleared without matching source document, amounts may be manually structured or fabricated, and possible concealment or unusual routing. The matched correspondence adds a behavioral signal: possible concealment or unusual routing. This combination makes the case look coordinated rather than accidental.",
+      "evidence_summary": "The strongest evidence against Strata Consult BD is that a bank-cleared payment has no matching receipt/source document in the allowed window, the vendor's leading-digit distribution strongly deviates from Benford's Law (chi-square 208.54), vendor-matched correspondence suggests possible concealment or unusual routing, and very high Benford deviation without a matching business explanation indicates possible fabricated-billing or shell-vendor risk. The emails also contain language consistent with possible concealment or unusual routing, which strengthens the escalation. No vendor-matched explanation was strong enough to neutralize the risk.",
+      "people_involved": [
+        "Rafiq Hossain",
+        "Tariq Molla"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then review how invoice amounts were selected and who prepared the invoices Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Bismillah Cement Co.",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Bismillah Cement Co. was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Bismillah Cement Co. is that a bank-cleared payment has no matching receipt/source document in the allowed window, vendor-matched documents describe a duplicate scan/upload/copy rather than a duplicate payment, and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Imran Ahmed",
+        "Shaila Rahman",
+        "Nusrat Karim",
+        "Tariq Molla"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Padma Equipment Rental",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Padma Equipment Rental was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Padma Equipment Rental is that a bank-cleared payment has no matching receipt/source document in the allowed window, vendor-matched documents describe a duplicate scan/upload/copy rather than a duplicate payment, and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Imran Ahmed",
+        "Tariq Molla",
+        "Nusrat Karim",
+        "Shaila Rahman"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Meghna Sand & Aggregates",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Meghna Sand & Aggregates was used to route questionable payments through payment cleared without matching source document and payments may have been split below an approval threshold. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Meghna Sand & Aggregates is that a bank-cleared payment has no matching receipt/source document in the allowed window, multiple near-threshold payments were clustered within a short window, and vendor-matched documents describe separate deliveries, locations, work orders, or operational constraints.",
+      "people_involved": [
+        "Imran Ahmed",
+        "Shaila Rahman",
+        "Tariq Molla",
+        "Nusrat Karim"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then review whether clustered payments were intentionally separated or represent separate scopes Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "OfficeLease Holdings",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that OfficeLease Holdings was used to route questionable payments through payment cleared without matching source document and round-number payment pattern may be manually generated. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against OfficeLease Holdings is that a bank-cleared payment has no matching receipt/source document in the allowed window, a high share of payments are round numbers, vendor-matched documents describe contractual, recurring, rent, or lease terms, and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Imran Ahmed",
+        "Shaila Rahman",
+        "Tariq Molla"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then check whether round payments are contractual recurring charges Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Bengal Compressor Rental",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Bengal Compressor Rental was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Bengal Compressor Rental is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Nusrat Karim",
+        "Shaila Rahman",
+        "Imran Ahmed"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Eastern Fuel Station",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Eastern Fuel Station was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Eastern Fuel Station is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Shaila Rahman",
+        "Nusrat Karim",
+        "Imran Ahmed",
+        "Ruposhi Stationery",
+        "Eastern Fuel Station"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Jamuna Paints & Coatings",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Jamuna Paints & Coatings was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Jamuna Paints & Coatings is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Nusrat Karim",
+        "Imran Ahmed",
+        "Jamuna Paints & Coatings"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Ruposhi Stationery",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Ruposhi Stationery was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Ruposhi Stationery is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Shaila Rahman",
+        "Imran Ahmed",
+        "Nusrat Karim",
+        "Ruposhi Stationery"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Shapla Timber Traders",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Shapla Timber Traders was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Shapla Timber Traders is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Nusrat Karim",
+        "Shaila Rahman",
+        "Imran Ahmed"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Sonargaon Tiles Depot",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Sonargaon Tiles Depot was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Sonargaon Tiles Depot is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Tariq Molla",
+        "Imran Ahmed",
+        "Rafiq Hossain",
+        "Sonargaon Tiles Depot",
+        "Nusrat Karim",
+        "Shaila Rahman"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Sundarban Transport Agency",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Sundarban Transport Agency was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Sundarban Transport Agency is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Rafiq Hossain",
+        "Nusrat Karim",
+        "Tariq Molla",
+        "Imran Ahmed",
+        "Shaila Rahman"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "TechPoint IT Support",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that TechPoint IT Support was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against TechPoint IT Support is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Rafiq Hossain",
+        "Tariq Molla",
+        "Nusrat Karim",
+        "Shaila Rahman",
+        "Imran Ahmed"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Capital Crane Service",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Capital Crane Service was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Capital Crane Service is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Shaila Rahman",
+        "Nusrat Karim",
+        "Imran Ahmed"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Crescent Electrical",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Crescent Electrical was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Crescent Electrical is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Imran Ahmed",
+        "Nusrat Karim",
+        "Shaila Rahman",
+        "Crescent Electrical",
+        "Tariq Molla"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Karnaphuli Rebar Cutters",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Karnaphuli Rebar Cutters was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Karnaphuli Rebar Cutters is that a bank-cleared payment has no matching receipt/source document in the allowed window. No vendor-matched explanation was strong enough to neutralize the risk.",
+      "people_involved": [
+        "Nusrat Karim",
+        "Shaila Rahman",
+        "Imran Ahmed"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Metro Labour Supply",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Metro Labour Supply was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Metro Labour Supply is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Shaila Rahman",
+        "Imran Ahmed",
+        "Tariq Molla",
+        "Nusrat Karim"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Mitali Catering",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Mitali Catering was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Mitali Catering is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Mitali Catering",
+        "Shaila Rahman",
+        "Imran Ahmed"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Prime Lab Testing",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Prime Lab Testing was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Prime Lab Testing is that a bank-cleared payment has no matching receipt/source document in the allowed window. No vendor-matched explanation was strong enough to neutralize the risk.",
+      "people_involved": [
+        "Imran Ahmed",
+        "Prime Lab Testing",
+        "Shaila Rahman",
+        "Tariq Molla"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Apex Buildmart",
+      "risk_score": 100,
+      "confidence": 94,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Apex Buildmart was not just an unusual vendor, but part of a payment path that shows payment cleared without matching source document, cleared amount differs from supporting document, payments may have been split below an approval threshold, and cleared before support was complete. The matched correspondence adds a behavioral signal: cleared before support was complete. This combination makes the case look coordinated rather than accidental.",
+      "evidence_summary": "The strongest evidence against Apex Buildmart is that a bank-cleared payment has no matching receipt/source document in the allowed window, the cleared bank amount does not match the supporting document amount, multiple near-threshold payments were clustered within a short window, one payment materially exceeded the vendor's usual payment range, and the payment pattern looks unusual relative to the vendor's own history. The emails also contain language consistent with cleared before support was complete, which strengthens the escalation.",
+      "people_involved": [
+        "Rafiq Hossain",
+        "Tariq Molla",
+        "Nusrat Karim"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then compare approved amount, receipt amount, and bank-cleared amount Then review whether clustered payments were intentionally separated or represent separate scopes Then validate the one-off amount against project scope and approval."
+    },
+    {
+      "vendor_name": "BlueRiver Janitorial",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that BlueRiver Janitorial was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against BlueRiver Janitorial is that a bank-cleared payment has no matching receipt/source document in the allowed window. No vendor-matched explanation was strong enough to neutralize the risk.",
+      "people_involved": [
+        "Shaila Rahman",
+        "Imran Ahmed",
+        "Tariq Molla"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Central Printing House",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Central Printing House was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Central Printing House is that a bank-cleared payment has no matching receipt/source document in the allowed window. No vendor-matched explanation was strong enough to neutralize the risk.",
+      "people_involved": [
+        "Nusrat Karim",
+        "Shaila Rahman",
+        "Imran Ahmed",
+        "Central Printing House",
+        "Rafiq Hossain"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "City Water Pump Services",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that City Water Pump Services was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against City Water Pump Services is that a bank-cleared payment has no matching receipt/source document in the allowed window. No vendor-matched explanation was strong enough to neutralize the risk.",
+      "people_involved": [
+        "Imran Ahmed",
+        "Shaila Rahman",
+        "Tariq Molla"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Delta Pipes & Fittings",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Delta Pipes & Fittings was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Delta Pipes & Fittings is that a bank-cleared payment has no matching receipt/source document in the allowed window. No vendor-matched explanation was strong enough to neutralize the risk.",
+      "people_involved": [
+        "Imran Ahmed",
+        "Shaila Rahman",
+        "Delta Pipes & Fittings",
+        "Nusrat Karim"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Dhaka Legal Associates",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Dhaka Legal Associates was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Dhaka Legal Associates is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Rafiq Hossain",
+        "Imran Ahmed",
+        "Tariq Molla",
+        "Dhaka Legal Associates",
+        "Nusrat Karim",
+        "Shaila Rahman"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Eastern Scaffold Ltd.",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Eastern Scaffold Ltd. was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Eastern Scaffold Ltd. is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Nusrat Karim",
+        "Shaila Rahman",
+        "Tariq Molla",
+        "Eastern Fuel Station",
+        "Imran Ahmed"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Greenline ReadyMix",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Greenline ReadyMix was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Greenline ReadyMix is that a bank-cleared payment has no matching receipt/source document in the allowed window. No vendor-matched explanation was strong enough to neutralize the risk.",
+      "people_involved": [],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Metro Security Services",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Metro Security Services was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Metro Security Services is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Shaila Rahman",
+        "Imran Ahmed",
+        "Tariq Molla",
+        "Nusrat Karim"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Oriental Glass Supply",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Oriental Glass Supply was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Oriental Glass Supply is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Shaila Rahman",
+        "Imran Ahmed",
+        "Nusrat Karim"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Riverbank GeoTextile",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Riverbank GeoTextile was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Riverbank GeoTextile is that a bank-cleared payment has no matching receipt/source document in the allowed window. No vendor-matched explanation was strong enough to neutralize the risk.",
+      "people_involved": [
+        "Imran Ahmed",
+        "Shaila Rahman",
+        "Nusrat Karim"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Skyline Hardware",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Skyline Hardware was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Skyline Hardware is that a bank-cleared payment has no matching receipt/source document in the allowed window and vendor-matched documents describe an approved exception, emergency, or one-off need.",
+      "people_involved": [
+        "Tariq Molla",
+        "Nusrat Karim",
+        "Imran Ahmed"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    },
+    {
+      "vendor_name": "Utility Marking BD",
+      "risk_score": 82,
+      "confidence": 80,
+      "verdict": "likely_fraud",
+      "case_interpretation": "The concern is that Utility Marking BD was used to route questionable payments through payment cleared without matching source document. The transaction pattern is strong enough to escalate because the flagged behavior is not fully explained by the matched documents.",
+      "evidence_summary": "The strongest evidence against Utility Marking BD is that a bank-cleared payment has no matching receipt/source document in the allowed window. No vendor-matched explanation was strong enough to neutralize the risk.",
+      "people_involved": [
+        "Imran Ahmed",
+        "Nusrat Karim",
+        "Shaila Rahman",
+        "Utility Marking BD"
+      ],
+      "next_steps": "Escalate this case for review. obtain the missing source document and approval trail Then identify approver, preparer, processor, and vendor-side beneficiary from email metadata Then compare document timestamps, uploader, and payment approval timing."
+    }
+  ],
+  "final_connected_summary": {
+    "high_risk_vendors": [
+      "Rahman Steel & Iron",
+      "Swift Cargo BD",
+      "Bengal Safety Gear",
+      "Northstar Survey Services",
+      "Strata Consult BD",
+      "Bismillah Cement Co.",
+      "Padma Equipment Rental",
+      "Meghna Sand & Aggregates",
+      "OfficeLease Holdings",
+      "Bengal Compressor Rental",
+      "Eastern Fuel Station",
+      "Jamuna Paints & Coatings",
+      "Ruposhi Stationery",
+      "Shapla Timber Traders",
+      "Sonargaon Tiles Depot",
+      "Sundarban Transport Agency",
+      "TechPoint IT Support",
+      "Capital Crane Service",
+      "Crescent Electrical",
+      "Karnaphuli Rebar Cutters",
+      "Metro Labour Supply",
+      "Mitali Catering",
+      "Prime Lab Testing",
+      "Apex Buildmart",
+      "BlueRiver Janitorial",
+      "Central Printing House",
+      "City Water Pump Services",
+      "Delta Pipes & Fittings",
+      "Dhaka Legal Associates",
+      "Eastern Scaffold Ltd.",
+      "Greenline ReadyMix",
+      "Metro Security Services",
+      "Oriental Glass Supply",
+      "Riverbank GeoTextile",
+      "Skyline Hardware",
+      "Utility Marking BD"
+    ],
+    "vendor_risk_snapshot": [
+      "Rahman Steel & Iron (82/100 risk, likely_fraud)",
+      "Swift Cargo BD (89/100 risk, likely_fraud)",
+      "Bengal Safety Gear (82/100 risk, likely_fraud)",
+      "Northstar Survey Services (82/100 risk, likely_fraud)",
+      "Strata Consult BD (100/100 risk, likely_fraud)",
+      "Bismillah Cement Co. (82/100 risk, likely_fraud)",
+      "Padma Equipment Rental (82/100 risk, likely_fraud)",
+      "Meghna Sand & Aggregates (82/100 risk, likely_fraud)",
+      "OfficeLease Holdings (82/100 risk, likely_fraud)",
+      "Bengal Compressor Rental (82/100 risk, likely_fraud)",
+      "Eastern Fuel Station (82/100 risk, likely_fraud)",
+      "Jamuna Paints & Coatings (82/100 risk, likely_fraud)",
+      "Ruposhi Stationery (82/100 risk, likely_fraud)",
+      "Shapla Timber Traders (82/100 risk, likely_fraud)",
+      "Sonargaon Tiles Depot (82/100 risk, likely_fraud)",
+      "Sundarban Transport Agency (82/100 risk, likely_fraud)",
+      "TechPoint IT Support (82/100 risk, likely_fraud)",
+      "Capital Crane Service (82/100 risk, likely_fraud)",
+      "Crescent Electrical (82/100 risk, likely_fraud)",
+      "Karnaphuli Rebar Cutters (82/100 risk, likely_fraud)",
+      "Metro Labour Supply (82/100 risk, likely_fraud)",
+      "Mitali Catering (82/100 risk, likely_fraud)",
+      "Prime Lab Testing (82/100 risk, likely_fraud)",
+      "Apex Buildmart (100/100 risk, likely_fraud)",
+      "BlueRiver Janitorial (82/100 risk, likely_fraud)",
+      "Central Printing House (82/100 risk, likely_fraud)",
+      "City Water Pump Services (82/100 risk, likely_fraud)",
+      "Delta Pipes & Fittings (82/100 risk, likely_fraud)",
+      "Dhaka Legal Associates (82/100 risk, likely_fraud)",
+      "Eastern Scaffold Ltd. (82/100 risk, likely_fraud)",
+      "Greenline ReadyMix (82/100 risk, likely_fraud)",
+      "Metro Security Services (82/100 risk, likely_fraud)",
+      "Oriental Glass Supply (82/100 risk, likely_fraud)",
+      "Riverbank GeoTextile (82/100 risk, likely_fraud)",
+      "Skyline Hardware (82/100 risk, likely_fraud)",
+      "Utility Marking BD (82/100 risk, likely_fraud)"
+    ],
+    "shared_parties_across_high_risk_vendors": [
+      "Imran Ahmed",
+      "Shaila Rahman",
+      "Nusrat Karim",
+      "Tariq Molla",
+      "Rafiq Hossain",
+      "Ruposhi Stationery",
+      "Eastern Fuel Station"
+    ],
+    "summary": "The high-risk cases do not look isolated. Rahman Steel & Iron, Swift Cargo BD, Bengal Safety Gear, Northstar Survey Services, Strata Consult BD, Bismillah Cement Co., Padma Equipment Rental, Meghna Sand & Aggregates, OfficeLease Holdings, Bengal Compressor Rental, Eastern Fuel Station, Jamuna Paints & Coatings, Ruposhi Stationery, Shapla Timber Traders, Sonargaon Tiles Depot, Sundarban Transport Agency, TechPoint IT Support, Capital Crane Service, Crescent Electrical, Karnaphuli Rebar Cutters, Metro Labour Supply, Mitali Catering, Prime Lab Testing, Apex Buildmart, BlueRiver Janitorial, Central Printing House, City Water Pump Services, Delta Pipes & Fittings, Dhaka Legal Associates, Eastern Scaffold Ltd., Greenline ReadyMix, Metro Security Services, Oriental Glass Supply, Riverbank GeoTextile, Skyline Hardware, Utility Marking BD were all escalated as likely fraud, and the same named parties appear across more than one of those vendor cases: Imran Ahmed, Shaila Rahman, Nusrat Karim, Tariq Molla, Rafiq Hossain. That overlap suggests the suspicious activity may have moved through a shared internal approval or payment-processing route, rather than three unrelated vendor problems. In plain terms: Apex shows direct payment-document manipulation, while the other high-risk vendors show structured or fabricated-looking billing patterns. The repeated people across those cases are the connective tissue that makes this look coordinated.",
+    "relationship_theory": "The likely relationship is a shared actor network: the same internal parties appear around multiple high-risk vendors, which points to coordination across procurement, approval, and payment handling. This does not by itself prove personal guilt, but it identifies exactly whose approval trail, inbox history, and vendor onboarding records should be reviewed first.",
+    "recommended_confirmation_steps": [
+      "Compare approval chains across the high-risk vendors.",
+      "Check whether the shared parties touched invoice approval, payment release, or vendor onboarding.",
+      "Review email timestamps against payment dates and document-upload dates.",
+      "Confirm vendor ownership, bank account ownership, and any personal links between vendor contacts and internal staff."
+    ]
+  }
+}

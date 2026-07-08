@@ -1,4 +1,5 @@
 import json
+import os
 import shutil
 import sys
 import tempfile
@@ -17,12 +18,27 @@ from fastapi.responses import StreamingResponse
 from ingestion.bank_statement import ingest_bank_statement
 from ingestion.batch_loader import load_email_folder, load_receipt_folder
 from detection.run_engines import run_engines
-from agent_execution import run_full_analysis
-
-PROJECT_ROOT = Path(__file__).resolve().parent
-RESULTS_PATH = PROJECT_ROOT / "data" / "forensic_case_results.json"
-
+from agent_execution import configure_analysis_storage, run_full_analysis
+from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://127.0.0.1:3000",
+        "http://localhost:3000",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+PROJECT_ROOT = Path(__file__).resolve().parent
+
+
+def _results_path() -> Path:
+    return Path(os.getenv("FORENSIC_RESULTS_PATH", str(PROJECT_ROOT / "data" / "forensic_case_results.json")))
+
+
 JOB_EXECUTOR = ThreadPoolExecutor(max_workers=8)
 JOB_REGISTRY: Dict[str, Dict[str, Any]] = {}
 JOB_LOCK = Lock()
@@ -132,20 +148,22 @@ def _make_temp_dir(prefix: str) -> Path:
     return Path(tempfile.mkdtemp(prefix=prefix, dir=str(_ensure_runtime_dir(PROJECT_ROOT / "data" / "tmp"))))
 
 
-def _run_agent_job() -> Dict[str, Any]:
+def _run_agent_job(demo: bool = True) -> Dict[str, Any]:
     print("[forensic-agent] Starting forensic agent analysis...")
-    result = run_full_analysis(interactive_followup=False)
+    result = run_full_analysis(demo=demo, interactive_followup=False)
     print("[forensic-agent] Forensic agent analysis completed")
     return result
 
 
-def _run_analysis_workflow() -> Dict[str, Any]:
+def _run_analysis_workflow(demo: bool = True) -> Dict[str, Any]:
+    configure_analysis_storage(demo)
+
     print("[analysis-workflow] Running fraud detection engines...")
     flags = run_engines()
     print(f"[analysis-workflow] Detection finished with {len(flags)} flag(s).")
 
     print("[analysis-workflow] Starting forensic agent job...")
-    agent_job_id = _start_job("forensic-agent", _run_agent_job)
+    agent_job_id = _start_job("forensic-agent", _run_agent_job, demo)
     agent_job = JOB_REGISTRY[agent_job_id]
     agent_job["done"].wait(timeout=3600)
 
@@ -162,7 +180,7 @@ def _run_analysis_workflow() -> Dict[str, Any]:
 
 @app.get("/results")
 def index():
-    with RESULTS_PATH.open("r", encoding="utf-8") as f:
+    with _results_path().open("r", encoding="utf-8") as f:
         data = json.load(f)
     return data
 
@@ -201,8 +219,8 @@ def stream_job_logs(job_id: str):
     return StreamingResponse(generate(), media_type="text/plain")
 
 @app.post("/start-analysis")
-async def start_agent():
-    job_id = _start_job("analysis-workflow", _run_analysis_workflow)
+async def start_agent(demo: bool = True):
+    job_id = _start_job("analysis-workflow", _run_analysis_workflow, demo)
     return {
         "job_id": job_id,
         "status": "started",
